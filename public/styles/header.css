@@ -1,0 +1,11 @@
+header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 400px;
+  width: 100%;
+  background-color: #08f169ee;
+  background-image: url("https://www.transparenttextures.com/patterns/starring.png");
+  margin-top: 150px;
+  padding-top: 10px;
+}
