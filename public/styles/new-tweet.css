@@ -1,0 +1,43 @@
+/* Style for main element*/
+.container {
+  padding: 1.5em;
+}
+
+/*Styling for the form element which holds the textarea, button and counter*/
+form {
+  margin-bottom: 15px;
+}
+
+/* styling for the tweet button*/
+button {
+  font-family: 'Bungee', sans-serif;
+  background-color: #7540a1;
+  color: #FFFFFF;
+}
+
+/*styling for the tweet counter*/
+.counter{
+  flaot: right;
+  font-family: 'Bungee', sans-serif;
+  color: black; 
+}
+
+/*styling for the div that contains the button and the counter*/
+.bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/*Styling for the tweet text that will be displayed*/
+#tweet-text {
+  background-color: transparent;
+  border: none;
+  border-bottom: 3px solid black;
+  width: 100%;
+}
+
+.new-tweet {
+  color: #545149;
+  font-size: 20px;
+}
