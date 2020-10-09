@@ -2,27 +2,37 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
+
+
  $(document).ready(function() {
+
+//This function evaluates the text input by user and re-encodes the text to avoid unsafe characters converting into safe 'encoded' form
+   const escape =  function(str) {
+    let div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
 
 //Create tweet element function for New Tweet!
 const createTweetElement = function(data) {
+  
   let newTweet = `
-    <div class="tweet">
-    <div class="tweet-header">
-    <img src= ${data.user.avatars} class="tweeter-icon">
-    <p class="tweeter-name"> ${data.user.name} </p>
-    <p class="handle"> ${data.user.handle} </p>
-    </div>
-    <h2 class="tweet1">${data.content.text}</h2>
-    <div class="tweet-footer">
-    <p class="days-ago"> ${data.created_at}}</p>
-    <p class="small-icons"> <i class="fa fa-flag"></i> <i class="fa fa-retweet"></i><i class="fa fa-heart"></i></p>
-    </article>
-    </div>`;
+  <div class="tweet">
+  <div class="tweet-header">
+  <img src= ${data.user.avatars} class="tweeter-icon">
+  <p class="tweeter-name"> ${data.user.name} </p>
+  <p class="handle"> ${data.user.handle} </p>
+  </div>
+  <h2 class="tweet1">${escape(data.content.text)}</h2>
+  <div class="tweet-footer">
+  <p class="days-ago"> ${data.created_at}}</p>
+  <p class="small-icons"> <i class="fa fa-flag"></i> <i class="fa fa-retweet"></i><i class="fa fa-heart"></i></p>
+  </article>
+  </div>`;
 
-  return newTweet;
-    //$('#tweets-container').append(newTweet); 
+return newTweet;
 };
+    //$('#tweets-container').append(newTweet); 
 
   //To toggle tweet input form
  $('.angled-arrow').click(function() {
@@ -30,15 +40,15 @@ const createTweetElement = function(data) {
 });
  
  //Submit function for submitting a new tweet
-  $( '#tweet-button').submit(function( event ) {
+  $( '#tweet-form').submit(function( event ) {
     event.preventDefault();
+     console.log($('#tweet-text').val().length);
 
-    if ($('#tweet-button').val().length <= 0) {
-      $('.empty-alert');
-    } else if ($('#tweet-button').val().length > 140) {
-      $('.over-alert');
-    } 
-   
+    if ($('#tweet-text').val().length <= 0) {
+      alert("Tweet is empty!");
+    } else if ($('#tweet-text').val().length > 140) {
+      alert("Tweet is too long!");
+    } else {
 
  //AJAX post request to send data to server
   $.ajax({
@@ -49,7 +59,8 @@ const createTweetElement = function(data) {
       .then((res) => {
         console.log("Success")
         loadTweets()
-      });
+      })
+    }
 });
 
 
@@ -75,8 +86,6 @@ const renderTweets = function(tweets) {
         $('.tweets-container').empty();
         renderTweets(res);
       })
-    $('#tweet-text').val('');
-    $('.counter').val(140);
   };
   loadTweets()
 });
