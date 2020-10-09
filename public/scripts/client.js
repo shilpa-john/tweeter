@@ -48,7 +48,8 @@ const createTweetElement = function(data) {
       .then((res) => {
         console.log("Success")
         loadTweets()
-        $('#tweet-button').val("");
+        $('#tweet-text').val("");
+        $('.counter').val(140);
       });
 });
 
@@ -59,15 +60,24 @@ const renderTweets = function(tweets) {
   $('.tweets-container').empty();
   for (const tweet of tweets) {
      const $tweet = createTweetElement(tweet);
-     $('.tweets-container').prepend($tweet);
+     $('.tweets-container').prepend($tweet); //Changed to prepend for display at top of web page
   }
 }
 
 //Function To Load Tweets
 const loadTweets = () => {
-  $.get("/tweets")
+
+  $.ajax ({
+    url: '/tweets',
+    method: "GET",
+  })
+  .then ((res) => {
+    $('.tweets-container').empty();
+    renderTweets(res)
+  /*$.get("/tweets")
     .then(response => renderTweets(response))
-    .catch(e => $(".tweets-container").prepend(`<h1>SOMETHING'S WRONG</h1>`));
+    .catch(e => $(".tweets-container").prepend(`<h1>SOMETHING'S WRONG</h1>`));*/
+})
 };
 
 loadTweets();
