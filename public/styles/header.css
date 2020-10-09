@@ -1,4 +1,4 @@
-header{
+body >header{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -7,5 +7,6 @@ header{
   background-color: #08f169ee;
   background-image: url("https://www.transparenttextures.com/patterns/starring.png");
   margin-top: 150px;
+  margin-bottom: 20px;
   padding-top: 10px;
 }
