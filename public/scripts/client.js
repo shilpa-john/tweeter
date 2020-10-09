@@ -32,30 +32,30 @@ const createTweetElement = function(data) {
  //Submit function for submitting a new tweet
   $( '#tweet-button').submit(function( event ) {
     event.preventDefault();
-   /* if ($('#tweet-button').val().length <= 0) {
+
+    if ($('#tweet-button').val().length <= 0) {
       $('.empty-alert');
     } else if ($('#tweet-button').val().length > 140) {
       $('.over-alert');
     } 
-   else {*/
+   
 
  //AJAX post request to send data to server
   $.ajax({
         url: '/tweets',
         method: "POST" ,
-        data: $(this).serialize()
+        data: $(this).serialize(),
       })
       .then((res) => {
         console.log("Success")
         loadTweets()
-        $('#tweet-text').val("");
-        $('.counter').val(140);
       });
 });
 
 
 // Loops through tweets and calls createTweetElement for each tweet.
 // Also takes return value and appends it to the tweets container
+
 const renderTweets = function(tweets) {
   $('.tweets-container').empty();
   for (const tweet of tweets) {
@@ -64,22 +64,19 @@ const renderTweets = function(tweets) {
   }
 }
 
-//Function To Load Tweets
-const loadTweets = () => {
-
-  $.ajax ({
-    url: '/tweets',
-    method: "GET",
-  })
-  .then ((res) => {
-    $('.tweets-container').empty();
-    renderTweets(res)
-  /*$.get("/tweets")
-    .then(response => renderTweets(response))
-    .catch(e => $(".tweets-container").prepend(`<h1>SOMETHING'S WRONG</h1>`));*/
-})
-};
-
-loadTweets();
-
+  //ajax GET request
+  //loads current collection of tweets onto the page
+  const loadTweets = function() {
+    $.ajax({
+      url: '/tweets',
+      method: "GET",
+    })
+      .then ((res) => {
+        $('.tweets-container').empty();
+        renderTweets(res);
+      })
+    $('#tweet-text').val('');
+    $('.counter').val(140);
+  };
+  loadTweets()
 });
