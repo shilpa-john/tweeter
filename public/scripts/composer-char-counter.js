@@ -4,7 +4,7 @@ $(document).ready(function() {
   $("#tweet-text").keydown(function() {
     let tweet = $(this).val().length;
     const limit = $('.counter');
-    let maxVal = 140;
+    const maxVal = 140;
     limit.val(maxVal - tweet );
 
     if (tweet > 140) {
@@ -20,7 +20,7 @@ $(document).ready(function() {
 
   $('#submit-button').click(function() {
     $('.counter').val(140);
-    if ($('#tweet-text').val() === "") {
+    if ($('#tweet-text').val().length === "") {
       alert("Blanks tweets are not good!");
 
     } else if ($('#tweet-text').val().length > 140) {
