@@ -2,8 +2,6 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-
-
  $(document).ready(function() {
 
 //This function evaluates the text input by user and re-encodes the text to avoid unsafe characters converting into safe 'encoded' form
@@ -32,7 +30,6 @@ const createTweetElement = function(data) {
 
 return newTweet;
 };
-    //$('#tweets-container').append(newTweet); 
 
   //To toggle tweet input form
  $('.angled-arrow').click(function() {
@@ -42,14 +39,6 @@ return newTweet;
  //Submit function for submitting a new tweet
   $( '#tweet-form').submit(function( event ) {
     event.preventDefault();
-     console.log($('#tweet-text').val().length);
-
-    if ($('#tweet-text').val().length <= 0) {
-      alert("Tweet is empty!");
-    } else if ($('#tweet-text').val().length > 140) {
-      alert("Tweet is too long!");
-    } else {
-
  //AJAX post request to send data to server
   $.ajax({
         url: '/tweets',
@@ -60,9 +49,8 @@ return newTweet;
         console.log("Success")
         loadTweets()
       })
-    }
+    //}
 });
-
 
 // Loops through tweets and calls createTweetElement for each tweet.
 // Also takes return value and appends it to the tweets container
