@@ -1,12 +1,12 @@
-body >header{
+header {
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 400px;
   width: 100%;
-  background-color: #08f169ee;
-  background-image: url("https://www.transparenttextures.com/patterns/starring.png");
-  margin-top: 150px;
+  background-color: #cc8800;
+  background-image: url("https://www.transparenttextures.com/patterns/black-thread-light.png");
+  margin-top: 120px;
   margin-bottom: 20px;
-  padding-top: 10px;
+  padding: 1em;
 }

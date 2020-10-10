@@ -1,43 +1,135 @@
-/* Style for main element*/
-.container {
-  padding: 1.5em;
+counter {
+  float: right;
+  font-family: 'Bungee', 'sans-serif';
+  margin-top: 20px;
 }
 
-/*Styling for the form element which holds the textarea, button and counter*/
-form {
-  margin-bottom: 15px;
-}
-
-/* styling for the tweet button*/
-button {
-  font-family: 'Bungee', sans-serif;
-  background-color: #7540a1;
-  color: #FFFFFF;
-}
-
-/*styling for the tweet counter*/
-.counter{
-  flaot: right;
-  font-family: 'Bungee', sans-serif;
-  color: black; 
-}
-
-/*styling for the div that contains the button and the counter*/
-.bottom {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-/*Styling for the tweet text that will be displayed*/
-#tweet-text {
-  background-color: transparent;
-  border: none;
-  border-bottom: 3px solid black;
-  width: 100%;
+.submit {
+  font-family: 'Bungee', 'sans-serif';
+  color: white;
+  background-color: #06E1BB;
+  margin-top: 20px;
 }
 
 .new-tweet {
   color: #545149;
   font-size: 20px;
+}
+
+.question {
+  font-size: 30px;
+  font-family: 'Source Sans Pro', 'sans-serif';
+}
+
+#tweet-text {
+  width: 100%;
+  background-color: transparent;
+  color: black;
+  outline: 0;
+  border-color: black;
+  border: none;
+  border-bottom: 2px solid gray;
+  resize: none;
+  font-size: 30px;
+  font-weight: regular;
+  margin-left: 5px;
+  margin-right: 10px;
+  font-family: 'Source Sans Pro', 'sans-serif';
+}
+
+.flex-container {
+  width: 100%;
+}
+
+article {
+  /* border: 5px solid gray; */
+  margin: 100px;
+  padding: 10px;
+  font-size: 30px;
+  color: black;
+  font-style: normal;
+}
+
+.tweet-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tweeter-name {
+  margin-right: auto;
+  font-size: 30px;
+  font-style: bold;
+  padding-left: 50px;
+}
+
+.tweeter-name:hover {
+  color: black;
+}
+
+.tweet .tweeter-icon {
+  height: 100px;
+  opacity: 0.5;
+}
+
+.tweet:hover .tweeter-icon {
+  opacity: 1;
+}
+
+.tweet-footer {
+  border-top: 2px solid gray;
+  width: 95%;
+  margin: auto;
+  display: flex;
+  font-size: 20px
+}
+
+.days-ago {
+  margin-right: auto;
+  margin-left: 10px;
+}
+
+.tweets-container .handle:hover {
+  color: #bfbfbf;
+}
+
+.tweet1 {
+  font-weight: normal;
+}
+
+.tweet {
+  font-size: 20px;
+  color: rgb(49, 19, 19);
+  border: 2px solid gray;
+  margin: 10px;
+  word-wrap: break-word;
+  margin-bottom: 100px;
+  width: 80%;
+}
+
+.tweet:hover {
+  box-shadow: 5px 5px gray;
+  text-shadow: 2px 2px gray;
+}
+
+.handle {
+  font-size: 30px;
+  color: #f4f1ec;
+  margin-right: 20px;
+}
+
+.small-icons i {
+  margin-left: 30px;
+  color: #4056a1;
+}
+
+#error {
+  margin-top: 10px;
+  color: white;
+  position: relative;
+  padding: 10px !important;
+  border-radius: 0 !important;
+  background: red !important;
+  transition: all .5s ease-in-out;
+  display: inline-block !important;
+  box-shadow: 1px 1px 1px #aaaaaa;
 }

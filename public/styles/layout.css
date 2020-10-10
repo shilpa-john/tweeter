@@ -17,17 +17,61 @@ html {
 body {
   color: #545149;
   background-color: #f4f1ec;
+  justify-content: center;
   font-size: 24px;
   font-family: 'Source Sans Pro', sans-serif;
+  padding-top: 120px;
 }
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
   /*Styling for main element*/
-  container {
+  .container {
     display: flex;
     flex-direction: column;
     width: 90%;
     background-color: #f4f1ec;
+    margin: 0 auto;
    }
+
+
+ /* Desktop reactive */
+
+@media only screen and (min-width: 1024px) {
+  
+  .flex-container {
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 50px
+  }
+
+  article {
+    margin: 0 50px;
+    padding: 0px;
+    border-top-width: 0px;
+    border-bottom-width: 50px;
+  }
+
+  .tweet {
+    margin: 20 0px;
+    height: 244px;
+    width: 674px;
+  }
+
+  .new-tweet h2 {
+    margin-top: 0;
+  }
+
+  header {
+    height: 300px;
+    margin: 0 40px;
+    width: 320px;
+  }
+  
+  .avatar {
+    height: 100px;
+  }
+}
